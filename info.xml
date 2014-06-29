@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<extension key="nl.pum.sequence" type="module">
+  <file>sequence</file>
+  <name>Sequence</name>
+  <description>Adds sequence numbers to the CiviCRM API, similar to sequence in Oracle</description>
+  <license>AGPL-3.0</license>
+  <maintainer>
+    <author>Ralph Kersten</author>
+    <email>helpdesk@pum.nl</email>
+  </maintainer>
+  <releaseDate>2014-06-29</releaseDate>
+  <version>0.1</version>
+  <develStage>alpha</develStage>
+  <compatibility>
+    <ver>4.2</ver>
+  </compatibility>
+  <comments>Ready for testing</comments>
+  <civix>
+    <namespace>CRM/Sequence</namespace>
+  </civix>
+</extension>
