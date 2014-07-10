@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<menu>
+  <item>
+    <path>civicrm/pumsequence</path>
+    <page_callback>CRM_Sequence_Page_PumSequence</page_callback>
+    <title>PumSequence</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+</menu>
