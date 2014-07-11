@@ -4,7 +4,7 @@
 
 require_once 'CRM/Core/Page.php';
 
-static class CRM_Sequence_Page_PumSequence extends CRM_Core_Page {
+class CRM_Sequence_Page_PumSequence extends CRM_Core_Page {
   function run() {
     // Example: Set the page-title dynamically; alternatively, declare a static title in xml/Menu/*.xml
     CRM_Utils_System::setTitle(ts('PumSequence'));

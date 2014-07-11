@@ -16,6 +16,10 @@ API entity "Sequence"
   Mandatory Parameters: name
   Mandatory Parameters: n.a.
   Return value: number
+  
+The same functionality is also available in object oriented (static) PHP functions:
+- CRM_Sequence_Page_PumSequence::create($name=NULL, $cur_value=1, $min_value=1, $max_value=18446744073709551615, $increment=1, $cycle=FALSE)
+- CRM_Sequence_Page_PumSequence::nextval($name=NULL);
 
 
 Background / conditions:
