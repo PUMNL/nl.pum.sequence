@@ -29,9 +29,8 @@ function civicrm_api3_sequence_nextval($params) {
 	$name = $params['name'];
 	$sql = 'SELECT * from civicrm_pum_sequence WHERE name=\'' . $name . '\'';
 	$dao = CRM_Core_DAO::executeQuery($sql);
-	
-	if ($dao->is_error ==  1) {
-		throw new API_Exception($dao->error_message);
+	if ($dao->N <>  1) {
+		throw new API_Exception('Could not retrieve next value for sequence \''. $name . '\'');
 	} else {
 		$returnValues = NULL;
 		if ($dao->fetch()) {
