@@ -14,12 +14,17 @@ API entity "Sequence"
   Return value: n.a.
 - Action "Nextval"
   Mandatory Parameters: name
-  Mandatory Parameters: n.a.
+  Optional parameters: n.a.
   Return value: number
+- Action "Ispresent"
+  Mandatory Parameters: name
+  Optional parameters: n.a.
+  Return value: boolean
   
 The same functionality is also available in object oriented (static) PHP functions:
 - CRM_Sequence_Page_PumSequence::create($name=NULL, $cur_value=1, $min_value=1, $max_value=18446744073709551615, $increment=1, $cycle=FALSE)
 - CRM_Sequence_Page_PumSequence::nextval($name=NULL);
+- CRM_Sequence_Page_PumSequence::ispresent($name=NULL);
 
 
 Background / conditions:

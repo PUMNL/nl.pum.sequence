@@ -17,46 +17,67 @@ class CRM_Sequence_Page_PumSequence extends CRM_Core_Page {
   
   
   static function create($name=NULL, $cur_value=1, $min_value=1, $max_value=18446744073709551615, $increment=1, $cycle=FALSE) {
-		if ($name=='') {
-			return FALSE;
-		} else {
-			$name=substr($name, 0, 100);
-		}
-		$params = array(
-			'version' => 3,
-			'q' => 'civicrm/ajax/rest',
-			'name' => $name,
-			'min_value' => $min_value,
-			'max_value' => $max_value,
-			'cur_value' => $cur_value,
-			'increment' => $increment,
-			'cycle' => ($cycle?1:0),
-		);
-		$result = civicrm_api('Sequence', 'create', $params);
-		if ($result['is_error']==0) {
-			return TRUE;
-		} else {
-			return FALSE;
-		}
+	if ($name=='') {
+		return FALSE;
+	} else {
+		$name=substr($name, 0, 100);
 	}
+	$params = array(
+		'version' => 3,
+		'q' => 'civicrm/ajax/rest',
+		'name' => $name,
+		'min_value' => $min_value,
+		'max_value' => $max_value,
+		'cur_value' => $cur_value,
+		'increment' => $increment,
+		'cycle' => ($cycle?1:0),
+	);
+	$result = civicrm_api('Sequence', 'create', $params);
+	if ($result['is_error']==0) {
+		return TRUE;
+	} else {
+		return FALSE;
+	}
+  }
 
 	
-	static function nextval($name=NULL) {
-		if ($name=='') {
-			return NULL;
-		} else {
-			$name=substr($name, 0, 100);
-		}
-		$params = array(
-			'version' => 3,
-			'q' => 'civicrm/ajax/rest',
-			'name' => $name,
-		);
-		$result = civicrm_api('Sequence', 'nextval', $params);
-		if ($result['is_error']==0) {
-			return $result['values'];
-		} else {
-			return NULL;
-		}
+  static function nextval($name=NULL) {
+	if ($name=='') {
+		return NULL;
+	} else {
+		$name=substr($name, 0, 100);
 	}
+	$params = array(
+		'version' => 3,
+		'q' => 'civicrm/ajax/rest',
+		'name' => $name,
+	);
+	$result = civicrm_api('Sequence', 'nextval', $params);
+	if ($result['is_error']==0) {
+		return $result['values'];
+	} else {
+		return NULL;
+	}
+  }
+  
+  
+  static function ispresent($name=NULL) {
+	if ($name=='') {
+		return FALSE;
+	} else {
+		$name=substr($name, 0, 100);
+	}
+	$params = array(
+		'version' => 3,
+		'q' => 'civicrm/ajax/rest',
+		'name' => $name,
+	);
+	$result = civicrm_api('Sequence', 'ispresent', $params);
+	if ($result['is_error']==0) {
+		return ($result['values']==0?FALSE:TRUE);
+	} else {
+		return NULL;
+	}
+  }
+  
 }
