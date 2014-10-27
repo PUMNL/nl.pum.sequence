@@ -77,7 +77,10 @@ function civicrm_api3_sequence_create($params) {
   $sql = 'INSERT INTO civicrm_pum_sequence (' . implode(', ', $sql_cols) . ') VALUES (' . implode(', ', $sql_vals) . ')';
   $dao = CRM_Core_DAO::executeQuery($sql);
   
-  if ($dao->is_error ==  1) {
+  if (!property_exists($dao , 'is_error')) {
+	$returnValues = array();
+	return civicrm_api3_create_success($returnValues, $params);
+  } elseif ($dao->is_error == 1) {
 	throw new API_Exception($dao->error_message);
   } else {
 	$returnValues = array();
